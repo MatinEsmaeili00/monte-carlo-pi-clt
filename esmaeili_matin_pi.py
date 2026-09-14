@@ -66,6 +66,8 @@ from matplotlib.patches import Arc, Patch
 # Constants                                                                    #
 # --------------------------------------------------------------------------- #
 
+REPO_URL = "https://github.com/MatinEsmaeili00/monte-carlo-pi-clt"
+
 P_INSIDE = math.pi / 4.0                        # probability a point lands inside
 SIGMA_1 = math.sqrt(math.pi * (4.0 - math.pi))  # sd of a single 4*I draw ~= 1.6422
 Z_95 = 1.959963984540054                        # standard normal 97.5% quantile
@@ -504,6 +506,8 @@ def build_report(path: Path, conv: ConvergenceResult,
         page = TextPage(pdf, "Estimating $\\pi$ with Monte Carlo sampling")
         page.write("PhD Artificial Intelligence  |  Matin Esmaeili  |  "
                    f"seed = {meta['seed']}  |  runtime = {meta['runtime_s']:.1f} s",
+                   "caption", color=C["muted"], space_after=0.004)
+        page.write(f"Code, figures and data: {REPO_URL}",
                    "caption", color=C["muted"], space_after=0.02)
 
         page.write("1. Method", "h2")
@@ -671,6 +675,7 @@ def build_report(path: Path, conv: ConvergenceResult,
         info["Title"] = "Estimating pi with Monte Carlo and the CLT"
         info["Author"] = "Matin Esmaeili"
         info["Subject"] = "PhD Artificial Intelligence - Monte Carlo assignment"
+        info["Keywords"] = f"Monte Carlo; pi; Central Limit Theorem; {REPO_URL}"
 
 
 def _report_rows(ns: np.ndarray, max_rows: int = 12) -> set:

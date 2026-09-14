@@ -9,7 +9,7 @@
     ],
     "convergence_max_n": 10000000,
     "numpy_version": "2.5.3",
-    "runtime_s": 4.295557900000404
+    "runtime_s": 4.723376099999996
   },
   "theory": {
     "p_inside": 0.7853981633974483,
